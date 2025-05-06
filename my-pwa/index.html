@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мое PWA Приложение</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="logo192.png">
+  <meta name="theme-color" content="#317EF7"/>
+</head>
+<body>
+  <h1>Привет, это мое PWA!</h1>
+  <img src="logo192.png" alt="Логотип">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/serviceWorker.js')
+          .then((reg) => console.log('Service worker registered.', reg))
+          .catch((err) => console.warn('Service worker not registered.', err));
+      });
+    }
+  </script>
+</body>
+</html>
